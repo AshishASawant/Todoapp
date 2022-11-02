@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Todolist from "./Todolist";
+import { nanoid } from 'nanoid';
 
 const Todoinput = () => {
   const [userinput, setUserinput] = useState("");
@@ -12,6 +13,19 @@ const Todoinput = () => {
     }
   }, []);
 
+  useEffect(() => {
+    let div = document.getElementById("checkoverflow");
+    let footer = document.querySelector(".footer");
+    if (
+      div.scrollHeight > div.clientHeight &&
+      !(div.style.overflow && div.style.overflow === "hidden")
+    ) {
+      footer.innerText = "Scroll down for more todos";
+    } else {
+      footer.innerText = "Click on task when completed";
+    }
+  }, [todoarr]);
+
   // this function updates the userinput state when user enter a new todo
   const handelOnchange = (e) => {
     setUserinput(e.target.value);
@@ -22,7 +36,7 @@ const Todoinput = () => {
     e.preventDefault();
 
     let newTodo = {
-      id: Math.floor(Math.random() * 1000),
+      id: nanoid(),
       todo: userinput,
       className: "todo-items",
     };
@@ -77,9 +91,10 @@ const Todoinput = () => {
           autoFocus
         />
         <button className="add-btn">Add Todo</button>
-        </form>
-        <div className="todo-list">
-          {todoarr.length!==0?todoarr.map((todo) => {
+      </form>
+      <div id="checkoverflow" className="todo-list">
+        {todoarr.length !== 0 ? (
+          todoarr.map((todo) => {
             return (
               <Todolist
                 key={todo.id}
@@ -89,15 +104,18 @@ const Todoinput = () => {
                 todoarr={todoarr}
               />
             );
-          }):<h1>No tasks today</h1>}
-          <div class="scrollbar" id="style-1">
-      <div class="force-overflow"></div>
-    </div>
+          })
+        ) : (
+          <h1>No tasks today</h1>
+        )}
+        <div className="scrollbar" id="style-1">
+          <div className="force-overflow"></div>
         </div>
-        <div className="footer">
-          <p>Click on task when completed</p>
-        </div>
-        </>
+      </div>
+      <div className="footer">
+        <p>Click on task when completed</p>
+      </div>
+    </>
   );
 };
 

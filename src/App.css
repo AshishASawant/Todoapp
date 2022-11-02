@@ -7,6 +7,7 @@
 }
 
 body {
+  overflow: hidden; /* Hide scrollbars */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -134,63 +135,45 @@ h1 {
   width: 100%;
   color: #fff;
   bottom: 0px;
-  opacity: 0.5;
+  opacity: 0.4;
 }
 
 ::-webkit-scrollbar {
-  width: 20px;
+  display: none;
 }
 
-::-webkit-scrollbar-track {
-  background-color: transparent;
-}
 
-::-webkit-scrollbar-thumb {
-  background-color: #d6dee1;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #d6dee1;
-  border-radius: 20px;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #d6dee1;
-  border-radius: 20px;
-  border: 6px solid transparent;
-  background-clip: content-box;
-}
 
 @media only screen and (max-width: 600px) {
   .container {
     width: 80vmin;
-    height: 70vmax;
+    min-height: 70vmax ;
   }
 
   h1 {
     padding-top: 35px;
-    font-size: 25px;
+    font-size: 23px;
   }
   .todo-form {
     padding-top: 20px;
   }
   
   .todo-input {
-    font-size: 15px;
+    font-size: 17px;
     padding: 6px;
     width: 50%;
   }
   
   
   .add-btn {
-    font-size: 15px;
+    font-size: 17px;
     padding: 8px;
   }
   .todo-list{
     margin-top: 20px;
   }
   .todo-items{
-    font-size: 15px;
+    font-size: 17px;
     padding:  6px;
     width: 90%;
     margin: 4px;
