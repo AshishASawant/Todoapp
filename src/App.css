@@ -17,22 +17,24 @@ body {
 }
 
 .container {
-  background-color: aqua;
+  display: flex;
+  flex-flow: column;
   width: 80vmin;
   text-align: center;
-  min-height: 90vh;
+  height: 90vmin;
   background: #161a2b;
   border-radius: 10px;
+  position: relative;
 }
 
 h1 {
   color: aliceblue;
-  padding-top: 25px;
+  padding-top: 30px;
   font-size: 35px;
 }
 
 .todo-form {
-  padding-top: 17px;
+  padding-top: 20px;
 }
 
 .todo-input {
@@ -62,10 +64,12 @@ h1 {
   cursor: pointer;
 }
 .todo-list{
-  margin-top: 20px;
+  margin-top: 30px;
   display: flex;
   align-items: center;
   flex-direction: column;
+  flex-grow: 1;
+  overflow: auto;
 }
 .todo-items{
   display: flex;
@@ -123,4 +127,72 @@ h1 {
 .complete {
   text-decoration: line-through;
   opacity: 0.4;
+}
+
+.footer{
+  text-align: center;
+  width: 100%;
+  color: #fff;
+  bottom: 0px;
+  opacity: 0.5;
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d6dee1;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d6dee1;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d6dee1;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 80vmin;
+    height: 70vmax;
+  }
+
+  h1 {
+    padding-top: 35px;
+    font-size: 25px;
+  }
+  .todo-form {
+    padding-top: 20px;
+  }
+  
+  .todo-input {
+    font-size: 15px;
+    padding: 6px;
+    width: 50%;
+  }
+  
+  
+  .add-btn {
+    font-size: 15px;
+    padding: 8px;
+  }
+  .todo-list{
+    margin-top: 20px;
+  }
+  .todo-items{
+    font-size: 15px;
+    padding:  6px;
+    width: 90%;
+    margin: 4px;
+  }
 }
